@@ -1,13 +1,12 @@
-const gk=(a)=>{
-  var d=[];
-  for(var i=0;i<a.length;i++){
-    for(var j=i+1;j<a.length;j++){
-      if(a[i]===a[j]){
-        d.push(a[i]);
-        break;
-      }
-    }
-  }
-  return d;
+/**
+ * Finds and returns an array of duplicate elements in the input array.
+ *
+ * @param {Array} arr - The input array to search for duplicates.
+ * @returns {Array} - An array containing the duplicate elements found in the input array.
+ */
+
+const findDuplicates = (arr) => {
+  const duplicates = arr.filter((value, index) => arr.indexOf(value) !== index);
+  return [...new Set(duplicates)];
 };
-module.exports=gk;
+module.exports = findDuplicates;

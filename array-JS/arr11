@@ -1,11 +1,17 @@
-const gk=(x,y)=>{
-  var arr=[];
-  for(var i=x;i<=y;i++){
-    if(i%4===0 && i%100!==0)
-      arr.push(i);
-    else if(i%100===0 && i%400===0)
-      arr.push(i);
+/**
+ * Returns an array of leap years between the given range.
+ *
+ * @param {number} x - The start year of the range.
+ * @param {number} y - The end year of the range.
+ * @returns {number[]} - An array containing leap years within the specified range.
+ */
+const findLeapYearInRange = (x, y) => {
+  const leapYears = [];
+  for (let i = x; i <= y; i++) {
+    if ((i % 4 === 0 && i % 100 !== 0) || (i % 100 === 0 && i % 400 === 0)) {
+      leapYears.push(i);
+    }
   }
-  return arr;
+  return leapYears;
 };
-module.exports=gk;
+module.exports = findLeapYearInRange;

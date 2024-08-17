@@ -1,13 +1,22 @@
-const gk=(m1,m2,n)=>{
-  arr=new Array(n);
-  for(var r=0;r<n;++r){
-    arr[r]=new Array(n);
-    for(var c=0;c<n;++c){
-      arr[r][c]=0;
-      for(var k=0;k<n;++k)
-        arr[r][c]=arr[r][c]+( m1[r][k] * m2[k][c] );
+/**
+ * Multiplies two square matrices and returns the resulting matrix.
+ * @param {number[][]} matrix1 The first matrix to be multiplied.
+ * @param {number[][]} matrix2 The second matrix to be multiplied.
+ * @param {number} size The size of the square matrices.
+ * @returns {number[][]} The resulting matrix after multiplication.
+ */
+const multiplyMatrices = (matrix1, matrix2, size) => {
+  const result = new Array(size);
+  for (let row = 0; row < size; ++row) {
+    result[row] = new Array(size);
+    for (let col = 0; col < size; ++col) {
+      result[row][col] = 0;
+      for (let k = 0; k < size; ++k) {
+        result[row][col] += matrix1[row][k] * matrix2[k][col];
+      }
     }
   }
-  return arr;
+  return result;
 };
-module.exports=gk;
+
+module.exports = multiplyMatrices;

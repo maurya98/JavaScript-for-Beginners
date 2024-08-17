@@ -1,4 +1,13 @@
-const gk=(a,n)=>{
-  return(a.slice(-n));
-}
-module.exports=gk;
+/**
+ * Returns the last 'n' elements from array 'a'.
+ *
+ * @param {Array} array - The input array.
+ * @param {number} count - The number of elements to return from the end of the array.
+ * @returns {Array} The last 'n' elements from array 'a'.
+ */
+
+const getLastElements = (array, count) => {
+  return array.slice(-count);
+};
+
+module.exports = getLastElements;

@@ -1,32 +1,43 @@
-const gk=(n)=>{
-  var result=new Array(n).fill().map(() => new Array(n).fill(''));
-  var count = 1;
-  var startcol = 0;
-  var endcol = n-1;
-  var startrow = 0;
-  var endrow = n-1;
-  while(startcol<=endcol && startrow<=endrow){
-    for (var i=startcol;i<=endcol;i++){
-      result[startrow][i]=count;
+/**
+ * Generates a square matrix of size n filled with numbers in a spiral pattern.
+ * @param {number} size - The size of the square matrix to generate.
+ * @returns {Array<Array<number>>} The generated square matrix in a spiral pattern.
+ */
+const generateSpiralMatrix = (size) => {
+  const matrix = new Array(size).fill().map(() => new Array(size).fill(''));
+  let count = 1;
+  let startCol = 0;
+  let endCol = size - 1;
+  let startRow = 0;
+  let endRow = size - 1;
+
+  while (startCol <= endCol && startRow <= endRow) {
+    for (let i = startCol; i <= endCol; i++) {
+      matrix[startRow][i] = count;
       count++;
     }
-    startrow++;
-    for(var j=startrow;j<=endrow;j++){
-      result[j][endcol]=count;
+    startRow++;
+
+    for (let j = startRow; j <= endRow; j++) {
+      matrix[j][endCol] = count;
       count++;
     }
-    endcol--;
-    for(i=endcol;i>=startcol;i--){
-      result[endrow][i]=count;
+    endCol--;
+
+    for (let i = endCol; i >= startCol; i--) {
+      matrix[endRow][i] = count;
       count++;
     }
-    endrow--;
-    for(i=endrow;i>=startrow;i--){
-      result[i][startcol]=count;
+    endRow--;
+
+    for (let i = endRow; i >= startRow; i--) {
+      matrix[i][startCol] = count;
       count++;
     }
-    startcol++;
-    }
-    return result;
+    startCol++;
+  }
+
+  return matrix;
 };
-module.exports=gk;
+
+module.exports = generateSpiralMatrix;

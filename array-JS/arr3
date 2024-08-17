@@ -1,13 +1,33 @@
-const gk=(n)=>{
-  var a = n.toString();
-  String.prototype.insert = function(char,x){
-    return this.slice(0,x)+char+this.slice(x);
-  }
-  for(var i=0; i<a.length; i++){
-    if(parseInt(a.charAt(i))%2===0 && parseInt(a.charAt(i+1))%2===0){
-        a = a.insert('-',i+1);
+/**
+ * Inserts a dash '-' between two even digits in a given number.
+ *
+ * @param {number} n - The input number
+ * @returns {string} The modified number with dashes inserted between even digits
+ */
+
+const insertDashBetweenEvenDigits = (number) => {
+  const numberString = number.toString();
+
+  // Helper function to insert a character at a specific position in a string
+  const insertCharAt = (str, char, index) => {
+    return `${str.slice(0, index)}${char}${str.slice(index)}`;
+  };
+
+  let result = numberString;
+
+  // Iterate through the string representation of the number
+  for (let i = 0; i < result.length - 1; i++) {
+    const currentDigit = parseInt(result.charAt(i));
+    const nextDigit = parseInt(result.charAt(i + 1));
+
+    // Check if both current and next digits are even
+    if (currentDigit % 2 === 0 && nextDigit % 2 === 0) {
+      result = insertCharAt(result, "-", i + 1);
+      i++; // Skip the next character to avoid infinite loop
     }
   }
-  return a;
-}
-module.exports=gk;
+
+  return result;
+};
+
+module.exports = insertDashBetweenEvenDigits;

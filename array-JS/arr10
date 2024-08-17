@@ -1,10 +1,10 @@
-const gk=(a)=>{
-  var arr=[];
-    a.forEach(function(e){
-        if(arr.indexOf(e)<0){
-            arr.push(e);
-        }
-    });
-    return arr;
+/**
+ * Removes duplicate elements from an array.
+ *
+ * @param {Array} a - The input array with possible duplicate elements.
+ * @returns {Array} - A new array with unique elements.
+ */
+const removeDuplicates = (arr) => {
+  return arr.filter((value, index) => arr.indexOf(value) === index);
 };
-module.exports=gk;
+module.exports = removeDuplicates;

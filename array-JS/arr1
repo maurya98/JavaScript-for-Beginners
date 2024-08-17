@@ -1,4 +1,13 @@
-const gk=(a,n)=>{
-  return(a.slice(0,n));
-}
-module.exports=gk;
+/**
+ * Returns a new array containing the first 'n' elements of the input array 'a'.
+ *
+ * @param {Array} array - The input array.
+ * @param {number} count - The number of elements to include in the new array.
+ * @returns {Array} A new array with the first 'n' elements of the input array 'a'.
+ */
+
+const getFirstNElements = (array, count) => {
+  return array.slice(0, count);
+};
+
+module.exports = getFirstNElements;

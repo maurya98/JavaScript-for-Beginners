@@ -1,10 +1,19 @@
-const gk=(a)=>{
-  var sum=0,mul=1;
-  a.forEach(function(element){
-    sum+=element;
-    mul*=element;
-  });
-  x=[sum,mul];
-  return x;
+/**
+ * Calculate the sum and product of an array of numbers.
+ *
+ * @param {number[]} numbers - The array of numbers to process.
+ * @returns {number[]} An array containing the sum and product of the input numbers.
+ */
+const calculateSumAndProduct = (numbers) => {
+  const sum = numbers.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  const product = numbers.reduce(
+    (accumulator, currentValue) => accumulator * currentValue,
+    1
+  );
+  return [sum, product];
 };
-module.exports=gk;
+
+module.exports = calculateSumAndProduct;

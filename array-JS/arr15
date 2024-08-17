@@ -1,12 +1,21 @@
-const gk=(a,n)=>{
-  for(var i=1;i<a.length;i++){
-    for(var j=0;j<i;j++){
-      if(a[i]>a[j]){
-        var [e]=a.splice(i,1);
-        a.splice(j,0,e);
+javascript
+/**
+ * Sorts an array in ascending order and returns the kth largest element.
+ * 
+ * @param {Array} array - The input array to find the kth largest element from.
+ * @param {number} k - The position of the largest element to find.
+ * @returns {number} The kth largest element in the sorted array.
+ */
+const getKthLargestElement = (array, k) => {
+  for (let i = 1; i < array.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (array[i] > array[j]) {
+        let [element] = array.splice(i, 1);
+        array.splice(j, 0, element);
       }
     }
   }
-  return a[n];
+  return array[k];
 };
-module.exports=gk;
+
+module.exports = getKthLargestElement;

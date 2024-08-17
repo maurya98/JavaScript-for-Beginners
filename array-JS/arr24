@@ -1,22 +1,31 @@
-const gk=(ad,n,s)=>{
-  var q=[];
-  var visited=new Array(n);
-  for(var i=0;i<n;i++)
-    visited[i]=0;
-  var arr=[];
-  q.push(s);
-  visited[s]=1;
-  arr.push(q[0]);
-  while(q.length){
-    i=q.shift();
-    for(var j=0;j<n;j++){
-      if(visited[j]===0 && ad[i][j]===1){
-        visited[j]=1;
-        q.push(j);
-        arr.push(j);
+/**
+ * Performs a breadth-first search starting from a given node in a graph represented by an adjacency matrix.
+ * @param {number[][]} adjacencyMatrix The adjacency matrix representing the graph where adjacencyMatrix[i][j] is 1 if there is an edge between nodes i and j, and 0 otherwise.
+ * @param {number} numberOfNodes The number of nodes in the graph.
+ * @param {number} startNode The starting node for the breadth-first search.
+ * @returns {number[]} An array containing the nodes visited in the order they were traversed.
+ */
+const breadthFirstSearch = (adjacencyMatrix, numberOfNodes, startNode) => {
+  const queue = [];
+  const visited = new Array(numberOfNodes).fill(false);
+  const traversalOrder = [];
+
+  queue.push(startNode);
+  visited[startNode] = true;
+  traversalOrder.push(startNode);
+
+  while (queue.length > 0) {
+    const currentNode = queue.shift();
+    for (let neighbor = 0; neighbor < numberOfNodes; neighbor++) {
+      if (!visited[neighbor] && adjacencyMatrix[currentNode][neighbor] === 1) {
+        visited[neighbor] = true;
+        queue.push(neighbor);
+        traversalOrder.push(neighbor);
       }
     }
   }
-  return arr;
+
+  return traversalOrder;
 };
-module.exports=gk;
+
+module.exports = breadthFirstSearch;

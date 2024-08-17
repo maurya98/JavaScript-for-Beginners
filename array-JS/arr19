@@ -1,15 +1,20 @@
-const gk=(a,n)=>{
-  var arr=[];
-  for(var i=0;i<a.length;i++){
-    for(var j=i+1;j<a.length;j++){
-      if(a[i]+a[j]===n){
-        arr.push(i,j);
+/**
+ * Finds pairs of elements in an array that sum up to a given number.
+ * 
+ * @param {Array} array - The input array to search for pairs.
+ * @param {number} targetSum - The target sum value.
+ * @returns {Array|boolean} - An array containing the indices of the pair if found, otherwise false.
+ */
+const findPairsWithSum = (array, targetSum) => {
+  let indices = [];
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] + array[j] === targetSum) {
+        indices.push(i, j);
       }
     }
   }
-  if(arr.length===0)
-    return false;
-  else
-    return arr;
+  return indices.length === 0 ? false : indices;
 };
-module.exports=gk;
+
+module.exports = findPairsWithSum;

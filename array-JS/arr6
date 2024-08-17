@@ -1,12 +1,27 @@
-const gk=(a)=>{
-  for (var i=1; i<a.length;i++){
-    for (var j=0;j<i;j++){
-      if (a[i]>a[j]) {
-        var[element]=a.splice(i,1);
-        a.splice(j,0,element);
+/**
+ * Sorts an array in ascending order using the bubble sort algorithm.
+ *
+ * @param {Array} a - The array to be sorted.
+ * @returns {Array} - The sorted array.
+ */
+const bubbleSort = (a) => {
+  let n = a.length;
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < n - 1; i++) {
+      if (a[i] > a[i + 1]) {
+        // Swap the elements
+        let temp = a[i];
+        a[i] = a[i + 1];
+        a[i + 1] = temp;
+        swapped = true;
       }
     }
-  }
+    // Reduce the range of comparison since the last element is already sorted
+    n--;
+  } while (swapped);
   return a;
 };
-module.exports=gk;
+
+module.exports = bubbleSort;

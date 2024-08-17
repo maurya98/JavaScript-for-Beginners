@@ -1,15 +1,30 @@
-const gk=(a,n,x,y)=>{
-  var left=x;
-  var right=y;
-  while (left<=right){
-    var mid=left+Math.floor((right-left)/2);
-    if(a[mid]===n)
+/**
+ * Performs a binary search on an array to find a specific element.
+ * @param {Array} array The array to search in.
+ * @param {number} target The element to find in the array.
+ * @param {number} start The starting index of the search range.
+ * @param {number} end The ending index of the search range.
+ * @returns {boolean} True if the element is found, false otherwise.
+ */
+const binarySearch = (array, target, start, end) => {
+  let left = start;
+  let right = end;
+  
+  while (left <= right) {
+    const mid = left + Math.floor((right - left) / 2);
+    
+    if (array[mid] === target) {
       return true;
-    if(a[mid]<n)
-      left=mid+1;
-    else
-      right=mid-1;
+    }
+    
+    if (array[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
   }
+  
   return false;
 };
-module.exports=gk;
+
+module.exports = binarySearch;

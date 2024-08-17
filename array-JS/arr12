@@ -1,15 +1,28 @@
-const gk=(a,b)=>{
-  var arr=[];
-  var l=a.length<b.length?a.length:b.length;
-  for(var i=0;i<l;i++)
-    arr.push(a[i]+b[i]);
-  var len=a.length>b.length?a.length:b.length;
-  for(i=l;i<len;i++){
-    if(a.length>b.length)
-      arr.push(a[i]);
-    else
-      arr.push(b[i]);
+/**
+ * Calculates the element-wise sum of two arrays.
+ * 
+ * @param {Array} array1 - The first input array.
+ * @param {Array} array2 - The second input array.
+ * @returns {Array} The resulting array containing the element-wise sum of the input arrays.
+ */
+const elementWiseSum = (array1, array2) => {
+  const result = [];
+  const minLength = Math.min(array1.length, array2.length);
+
+  for (let i = 0; i < minLength; i++) {
+    result.push(array1[i] + array2[i]);
   }
-  return arr;
+
+  const maxLength = Math.max(array1.length, array2.length);
+  for (let i = minLength; i < maxLength; i++) {
+    if (array1.length > array2.length) {
+      result.push(array1[i]);
+    } else {
+      result.push(array2[i]);
+    }
+  }
+
+  return result;
 };
-module.exports=gk;
+
+module.exports = elementWiseSum;

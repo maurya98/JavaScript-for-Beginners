@@ -1,8 +1,15 @@
-const gk=(a)=>{
-  var sum=0;
-  a.forEach(function(element){
-    sum+=element*element;
+/**
+ * Calculates the sum of squares of the elements in the input array.
+ *
+ * @param {Array<number>} a - The array containing the elements to square and sum.
+ * @returns {number} The sum of squares of the elements in the input array.
+ */
+const calculateSumOfSquares = (a) => {
+  let sum = 0;
+  a.forEach((element) => {
+    sum += element * element;
   });
   return sum;
 };
-module.exports=gk;
+
+module.exports = calculateSumOfSquares;

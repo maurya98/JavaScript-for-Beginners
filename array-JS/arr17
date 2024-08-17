@@ -1,14 +1,20 @@
-const gk=(a,n)=>{
-  var flag=0;
-  for(var i=0;i<a.length;i++){
-    if(a[i]===n){
-      a.splice(i,1);
-      flag=1;
+/**
+ * Removes the first occurrence of a specified element from an array.
+ * 
+ * @param {Array} array - The array to remove the element from.
+ * @param {*} element - The element to be removed.
+ * @returns {Array|boolean} Returns the modified array after removing the element, or false if the element was not found.
+ */
+const removeElement = (array, element) => {
+  let found = false;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === element) {
+      array.splice(i, 1);
+      found = true;
+      break; // Exit loop after removing the first occurrence
     }
   }
-  if(flag===0)
-    return false;
-  else
-    return a;
+  return found ? array : false;
 };
-module.exports=gk;
+
+module.exports = removeElement;

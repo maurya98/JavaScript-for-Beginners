@@ -1,7 +1,15 @@
-const gk=(n,p)=>{
-  var a=[];
-  for(var i=0;i<p;i++)
-    a.push(n++);
-  return a;
+/**
+ * Returns an array of numbers starting from the given number 'n' and incrementing by 1 up to 'p' times.
+ *
+ * @param {number} n - The starting number for the sequence.
+ * @param {number} p - The number of elements to generate in the sequence.
+ * @returns {number[]} An array of numbers generated based on the input parameters.
+ */
+const generateConsecutiveNumbers = (startNum, count) => {
+  const result = [];
+  for (let i = 0; i < count; i++) {
+    result.push(startNum + i);
+  }
+  return result;
 };
-module.exports=gk;
+module.exports = generateConsecutiveNumbers;

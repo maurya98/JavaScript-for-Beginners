@@ -1,17 +1,25 @@
-const gk=(a,x)=>{
-  var d=0;
-  for(var i=1;i<a.length;i++){ 
-    d=Math.abs(a[i]-x); 
-    var j=i-1; 
-    if(Math.abs(a[j]-x)>d){
-      var temp=a[i]; 
-      while(Math.abs(a[j]-x)>d && j>=0){
-        a[j+1]=a[j];
-        j--; 
-      } 
-      a[j+1]=temp; 
-    } 
+/**
+ * Sorts an array in ascending order based on the absolute difference between each element and a given value.
+ * Uses insertion sort algorithm to rearrange the elements.
+ * 
+ * @param {Array} array The array to be sorted.
+ * @param {number} target The value to calculate the absolute difference from.
+ * @returns {Array} The sorted array.
+ */
+const sortByAbsoluteDifference = (array, target) => {
+  for (let i = 1; i < array.length; i++) {
+    const currentDifference = Math.abs(array[i] - target);
+    let j = i - 1;
+    if (Math.abs(array[j] - target) > currentDifference) {
+      const temp = array[i];
+      while (Math.abs(array[j] - target) > currentDifference && j >= 0) {
+        array[j + 1] = array[j];
+        j--;
+      }
+      array[j + 1] = temp;
+    }
   }
-  return a;
+  return array;
 };
-module.exports=gk;
+
+module.exports = sortByAbsoluteDifference;

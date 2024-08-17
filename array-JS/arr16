@@ -1,11 +1,19 @@
-const gk=(a,n)=>{
-  var r=false;
-  for(var i=0;i<a.length;i++){
-    if(a[i]===n){
-        r=true;
-        break;
+/**
+ * Checks if a specific element is present in an array.
+ * 
+ * @param {Array} array - The array to search in.
+ * @param {*} element - The element to search for.
+ * @returns {boolean} Returns true if the element is found, otherwise false.
+ */
+const isElementInArray = (array, element) => {
+  var found = false;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === element) {
+      found = true;
+      break;
     }
   }
-  return r;
+  return found;
 };
-module.exports=gk;
+
+module.exports = isElementInArray;

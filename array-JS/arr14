@@ -1,8 +1,15 @@
-const gk=(a,x,y)=>{
-  var t=a[x];
-  for(var i=x;i<y;i++)
-    a[i]=a[i+1];
-  a[y]=t;
-  return a;
+/**
+ * Rearranges elements in an array by moving the element at index `fromIndex` to index `toIndex`.
+ * 
+ * @param {Array} array - The input array.
+ * @param {number} fromIndex - The index of the element to move.
+ * @param {number} toIndex - The target index where the element should be moved.
+ * @returns {Array} - The modified array after rearranging the elements.
+ */
+const rearrangeArray = (array, fromIndex, toIndex) => {
+  const element = array.splice(fromIndex, 1)[0];
+  array.splice(toIndex, 0, element);
+  return array;
 };
-module.exports=gk;
+
+module.exports = rearrangeArray;

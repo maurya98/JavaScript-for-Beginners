@@ -1,12 +1,20 @@
-const gk=(a)=>{
-  for (var i=1; i<a.length;i++){
-    for (var j=0;j<i;j++){
-      if (a[i]<a[j]) {
-        var[element]=a.splice(i,1);
-        a.splice(j,0,element);
+/**
+ * Sorts an array in ascending order using the insertion sort algorithm.
+ *
+ * @param {Array} array - The array to be sorted.
+ * @returns {Array} - The sorted array.
+ */
+const insertionSort = (array) => {
+  for (let i = 1; i < array.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (array[i] < array[j]) {
+        const [element] = array.splice(i, 1);
+        array.splice(j, 0, element);
       }
     }
   }
-  return a;
+
+  return array;
 };
-module.exports=gk;
+
+module.exports = insertionSort;
